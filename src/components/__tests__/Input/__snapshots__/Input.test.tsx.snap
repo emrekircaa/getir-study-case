@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input renders with correct props 1`] = `
+<input
+  class="sc-aXZVg jCpxve"
+  data-testid="input"
+  placeholder="placeholder"
+  value=""
+/>
+`;
+
+exports[`Input should match snapshot with value 1`] = `
+<input
+  class="sc-aXZVg jCpxve"
+  data-testid="input"
+  placeholder="placeholder"
+  value=""
+/>
+`;
