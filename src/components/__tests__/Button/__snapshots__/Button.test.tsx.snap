@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component renders correctly with default props 1`] = `
+<div>
+  <button
+    class="sc-aXZVg jHQvpS"
+  >
+    Default Button
+  </button>
+</div>
+`;
