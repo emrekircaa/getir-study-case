@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BasketItem component renders with correct props 1`] = `
+<div
+  class="sc-gEvEer kyMQUm"
+  data-testid="basket-item-container"
+>
+  <div
+    class="sc-eqUAAy geJcCj"
+  >
+    <div
+      class="sc-fqkvVR chovyL"
+    >
+      Sample Item
+    </div>
+    <div
+      class="sc-dcJsrY epQLBC"
+    >
+      ₺
+      10
+    </div>
+  </div>
+  <div
+    class="sc-iGgWBj eCASMi"
+  >
+    <button
+      class="sc-aXZVg sc-kAyceB jHQvpS kZetFM"
+      data-testid="decrease-button"
+    >
+      <svg
+        fill="none"
+        height="3"
+        viewBox="0 0 10 3"
+        width="10"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          fill="#1EA4CE"
+          height="2.04384"
+          rx="1"
+          width="10"
+          y="0.725586"
+        />
+      </svg>
+    </button>
+    <div
+      class="sc-gsFSXq inSQFr"
+    >
+      3
+    </div>
+    <button
+      class="sc-aXZVg sc-kAyceB jHQvpS kZetFM"
+      data-testid="increase-button"
+    >
+      <svg
+        fill="none"
+        height="12"
+        width="12"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M6.44 10.407v-4.21h4.12c.243 0 .44-.2.44-.45a.445.445 0 0 0-.44-.45H6.44V1.088A.445.445 0 0 0 6 .638a.445.445 0 0 0-.44.45v4.21H1.44a.445.445 0 0 0-.44.45c0 .248.197.45.44.45h4.12v4.209c0 .248.197.45.44.45s.44-.201.44-.45"
+          stroke="#1EA4CE"
+        />
+      </svg>
+    </button>
+  </div>
+</div>
+`;
