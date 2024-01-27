@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShortingRadio component renders with correct props 1`] = `
+<div
+  class="sc-gEvEer gtABzu"
+  data-testid="radio-1"
+>
+  <div
+    class="sc-eqUAAy fQFYTn"
+  />
+  <div
+    class="sc-fqkvVR jzftmh"
+  >
+    Option 1
+  </div>
+</div>
+`;
+
+exports[`ShortingRadio component renders with correct props 2`] = `
+<div
+  class="sc-gEvEer gtABzu"
+  data-testid="radio-2"
+>
+  <div
+    class="sc-eqUAAy fQFYTn"
+  />
+  <div
+    class="sc-fqkvVR jzftmh"
+  >
+    Option 2
+  </div>
+</div>
+`;
+
+exports[`ShortingRadio component renders with correct props 3`] = `
+<div
+  class="sc-gEvEer gtABzu"
+  data-testid="radio-3"
+>
+  <div
+    class="sc-eqUAAy fQFYTn"
+  />
+  <div
+    class="sc-fqkvVR jzftmh"
+  >
+    Option 3
+  </div>
+</div>
+`;
