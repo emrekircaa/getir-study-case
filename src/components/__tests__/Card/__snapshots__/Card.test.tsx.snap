@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component should match snapshot with large card 1`] = `
+<div
+  class="sc-gEvEer kENWwO"
+  data-testid="card-item-container"
+>
+  child
+</div>
+`;
+
+exports[`Card component should match snapshot with lg card 1`] = `
+<div
+  class="sc-gEvEer eAIEtN"
+  data-testid="card-item-container"
+/>
+`;
+
+exports[`Card component should match snapshot with sm card 1`] = `
+<div
+  class="sc-gEvEer kENWwO"
+  data-testid="card-item-container"
+/>
+`;
