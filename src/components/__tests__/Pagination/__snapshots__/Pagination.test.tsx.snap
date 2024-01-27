@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component should match snapshot 1`] = `
+<div
+  class="sc-aXZVg kLGOtx"
+  data-testid="pagination"
+>
+  <ul
+    aria-label="Pagination"
+    role="navigation"
+  >
+    <li
+      class="previous disabled"
+    >
+      <a
+        aria-disabled="true"
+        aria-label="Previous page"
+        class=" "
+        rel="prev"
+        role="button"
+        tabindex="-1"
+      >
+        <div
+          class="sc-eqUAAy bTmlgM"
+        >
+          <svg
+            fill="none"
+            height="24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M5.067 12.333a.766.766 0 0 0 .192.28l6.127 6.13a.873.873 0 1 0 1.234-1.235l-4.63-4.632h10.135A.878.878 0 0 0 19 12a.878.878 0 0 0-.875-.876H7.98l4.63-4.633a.873.873 0 1 0-1.234-1.235l-6.126 6.13c-.08.08-.14.176-.193.281a.92.92 0 0 0 .009.666Z"
+              fill="#1EA4CE"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <div
+            class="sc-gEvEer gkWgdc"
+          >
+            Prev
+          </div>
+        </div>
+      </a>
+    </li>
+    <li
+      class="rp-page selected"
+    >
+      <a
+        aria-current="page"
+        aria-label="Page 1 is your current page"
+        class="rp-link"
+        rel="active"
+        role="button"
+        tabindex="-1"
+      >
+        1
+      </a>
+    </li>
+    <li
+      class="rp-page"
+    >
+      <a
+        aria-label="Page 2"
+        class="rp-link"
+        rel="next"
+        role="button"
+        tabindex="0"
+      >
+        2
+      </a>
+    </li>
+    <li
+      class="rp-page"
+    >
+      <a
+        aria-label="Page 3"
+        class="rp-link"
+        role="button"
+        tabindex="0"
+      >
+        3
+      </a>
+    </li>
+    <li
+      class="rp-break"
+    >
+      <a
+        aria-label="Jump forward"
+        class="rp-break-link"
+        role="button"
+        tabindex="0"
+      >
+        ...
+      </a>
+    </li>
+    <li
+      class="rp-page"
+    >
+      <a
+        aria-label="Page 8"
+        class="rp-link"
+        role="button"
+        tabindex="0"
+      >
+        8
+      </a>
+    </li>
+    <li
+      class="rp-page"
+    >
+      <a
+        aria-label="Page 9"
+        class="rp-link"
+        role="button"
+        tabindex="0"
+      >
+        9
+      </a>
+    </li>
+    <li
+      class="rp-page"
+    >
+      <a
+        aria-label="Page 10"
+        class="rp-link"
+        role="button"
+        tabindex="0"
+      >
+        10
+      </a>
+    </li>
+    <li
+      class="next"
+    >
+      <a
+        aria-disabled="false"
+        aria-label="Next page"
+        class=""
+        rel="next"
+        role="button"
+        tabindex="0"
+      >
+        <div
+          class="sc-eqUAAy bTmlgM"
+        >
+          <div
+            class="sc-gEvEer gkWgdc"
+          >
+            Next
+          </div>
+          <svg
+            fill="none"
+            height="14"
+            width="14"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M13.933 6.667a.765.765 0 0 0-.192-.28L7.614.257A.873.873 0 1 0 6.38 1.491l4.63 4.632H.875A.878.878 0 0 0 0 7c0 .482.394.876.875.876H11.02l-4.63 4.633a.873.873 0 1 0 1.234 1.235l6.126-6.13c.08-.08.14-.176.193-.281a.92.92 0 0 0-.009-.666Z"
+              fill="#697488"
+              fill-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+`;

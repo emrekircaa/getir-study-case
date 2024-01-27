@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductItem component renders with correct props 1`] = `
+<div
+  class="sc-eqUAAy irCVWI"
+  data-testid="ProductItem"
+>
+  <div
+    class="sc-fqkvVR kWyazK"
+  >
+    <img
+      alt="Product A"
+      src="defaultImage.png"
+    />
+  </div>
+  <div
+    class="sc-gEvEer kKQnYo"
+  >
+    <div
+      class="sc-dcJsrY euxwgw"
+    >
+      <span>
+        ₺
+      </span>
+       
+      10.99
+    </div>
+    <div
+      class="sc-iGgWBj ihxlYh"
+    >
+      Product A
+    </div>
+  </div>
+  <button
+    class="sc-aXZVg jHQvpS"
+  >
+    Add
+  </button>
+</div>
+`;
