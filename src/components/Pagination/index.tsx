@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import * as styles from "./styles";
 import RightArrow from "../../assets/icons/RightArrow";

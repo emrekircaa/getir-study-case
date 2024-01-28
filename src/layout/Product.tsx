@@ -6,7 +6,7 @@ import { useAppDispatch } from "../hooks/useAppDistpatch";
 import { Pagination } from "../components/Pagination";
 import {
   getAllProduct,
-  getFilteredProduct
+  getFilteredProduct,
 } from "../store/product/productSlice";
 import Skeleton from "../components/ProductItem/SketelonComp";
 import { setBasketList } from "../store/cart/cartSlice";
@@ -17,7 +17,7 @@ import { getAllCompanies } from "../store/brands/brandSlice";
 const ITEM_TYPES: any[] = [
   { id: "all", label: "All" },
   { id: "mug", label: "Mug" },
-  { id: "shirt", label: "Shirt" }
+  { id: "shirt", label: "Shirt" },
 ];
 export const Product: React.FC = () => {
   const { filteredProduct: product, isLoading } = useSelector(
@@ -73,7 +73,7 @@ export const Product: React.FC = () => {
                     onAddButtonClick={() => handleAddToCart(product)}
                   />
                 ))}
-            </StyledProductContent>{" "}
+            </StyledProductContent>
           </>
         ) : (
           <StyledProductContent>
@@ -86,7 +86,7 @@ export const Product: React.FC = () => {
       <Pagination
         pageCount={Math.ceil(product.totalItems / 16)}
         selectedPageIndex={0}
-        handlePageClick={(e) => handlePageClick(e)}
+        handlePageClick={e => handlePageClick(e)}
       />
     </StyledProduct>
   );
@@ -133,7 +133,7 @@ const StyledProductContent = styled.div`
   @media (max-width: 1023px) and (min-width: 960px) {
     max-width: 100%;
   }
-  @media (min-width: 1235px){
+  @media (min-width: 1235px) {
     width: 608px;
   }
 `;
