@@ -44,7 +44,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 - Live Versions
 
-  - Frontend Live via Vercell [link]()
+  - Frontend Live via Vercell [link](https://getir-study-case.vercel.app/)
   - Backend Api Live via Vercell [link](https://getir-backend-7sjz.vercel.app/)
 
 - Folder Structure
