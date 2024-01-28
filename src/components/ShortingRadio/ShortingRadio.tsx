@@ -2,47 +2,26 @@ import React, { useState, memo } from "react";
 import styled from "styled-components";
 import Tick from "../../assets/icons/Tick";
 import { colors } from "../../theme";
-import { useAppDispatch } from "../../hooks/useAppDistpatch";
-import { useSelector } from "react-redux";
-import { setFilter } from "../../store/filter/filterSlice";
 
-type data = {
-  id: string;
-  label: string;
-};
 interface ShortingRadioProps {
-  data?: data[];
-  onSelectedRadioChange?: any;
-  selectedOptionId?: boolean;
+  selectedOptionId?: any;
+  item: any
+  handleClick?: () => void
 }
-export const ShortingRadio: React.FC<ShortingRadioProps> = memo(
-  ({ data, onSelectedRadioChange, selectedOptionId }) => {
-    const [selectedRadioId, setSelectedRadioId] = useState(selectedOptionId);
-    const dispatch = useAppDispatch();
-    const filters = useSelector((store: any) => store.filter);
+export const ShortingRadio: React.FC<ShortingRadioProps> = (
+  ({ selectedOptionId, item, handleClick }) => {
 
-    const handleClick = (id: any) => {
-      setSelectedRadioId(id);
-      if (onSelectedRadioChange) onSelectedRadioChange(id);
-      dispatch(setFilter({ ...filters, sort: id, page: 1 }));
-    };
     return (
-      <StyledRadiosContent>
-        {data &&
-          data.length > 0 &&
-          data.map((item: any) => (
-            <StyledRadioWrapper
-              onClick={() => handleClick(item.id)}
-              key={item.id}
-              data-testid={`radio-${item.id}`}
-            >
-              <StyledRadio checked={item.id === selectedRadioId}>
-                {item.id === selectedRadioId && <Tick />}
-              </StyledRadio>
-              <StyledRadioLabel>{item.label}</StyledRadioLabel>
-            </StyledRadioWrapper>
-          ))}
-      </StyledRadiosContent>
+      <StyledRadioWrapper
+        onClick={handleClick}
+        key={item.id}
+        data-testid={`radio-${item.id}`}
+      >
+        <StyledRadio checked={item.id === selectedOptionId}>
+          {item.id === selectedOptionId && <Tick />}
+        </StyledRadio>
+        <StyledRadioLabel>{item.label}</StyledRadioLabel>
+      </StyledRadioWrapper>
     );
   }
 );

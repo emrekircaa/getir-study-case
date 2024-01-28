@@ -11,6 +11,7 @@ import { getTags } from "../store/tags/tagsSlice";
 import { setFilter } from "../store/filter/filterSlice";
 import { debounce } from "../utils/debounce";
 import Skeleton from "../components/Checkbox/SkeletonComp";
+import { getFilteredProduct } from "../store/product/productSlice";
 
 const SORTING_OPTIONS = [
   { id: "priceLowToHigh", label: "Price low to high" },
@@ -33,6 +34,8 @@ export const SideMenu: React.FC = () => {
   const [tagSearchTerm, setTagSearchTerm] = useState("");
   const [brandSelected, setBrandSelected] = useState("");
   const [tagSelected, setTagSelected] = useState("");
+  const [selectedRadio, setSelectedRadio] = useState("");
+
   const filters = useSelector((store: any) => store.filter);
 
   useEffect(() => {
@@ -71,11 +74,29 @@ export const SideMenu: React.FC = () => {
     );
     setFilteredTags(filtered);
   }, 100);
+
+
+  const handleClik = (item: any) => {
+    dispatch(setFilter({ ...filters, sort: item.id, page: 1 }))
+    setSelectedRadio(item.id)
+  }
   return (
     <StyledSideMenu>
       <StyledSideMenuContent>
         <Card size="sm" title="Sorting">
-          <ShortingRadio data={SORTING_OPTIONS} />
+          {
+            SORTING_OPTIONS.map((item) => (
+              <StyledRadiosContent key={item.id}>
+                <ShortingRadio
+                  selectedOptionId={selectedRadio}
+                  item={item}
+                  handleClick={() =>
+                    handleClik(item)
+                  }
+                />
+              </StyledRadiosContent>
+            ))
+          }
         </Card>
         <Card size="sm" title="Brands">
           <StyledInputWrapper>

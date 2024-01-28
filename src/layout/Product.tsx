@@ -32,7 +32,7 @@ export const Product: React.FC = () => {
   useEffect(() => {
     dispatch(getAllCompanies());
   }, []);
-
+  console.log(filters)
   useEffect(() => {
     if (filters) {
       dispatch(getFilteredProduct(filters));
@@ -160,7 +160,7 @@ const StyledButtonGroup = styled.div`
   align-items: center;
   gap: 8px;
 `;
-const StyledButtons = styled(StyledButton)<{ isSelected?: boolean }>`
+const StyledButtons = styled(StyledButton) <{ isSelected?: boolean }>`
   height: 30px;
   padding: 0 16px;
   width: auto;
