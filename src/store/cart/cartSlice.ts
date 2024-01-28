@@ -8,7 +8,7 @@ export type BasketStateType = {
 const initialState: BasketStateType = {
   basketList: [],
   totalPrice: 0,
-  isActive: false
+  isActive: false,
 };
 
 const basketSlice = createSlice({
@@ -17,10 +17,10 @@ const basketSlice = createSlice({
   reducers: {
     setBasketList: (state, action) => {
       const existingItem = state.basketList.find(
-        (item) => item.name === action.payload.name
+        item => item.name === action.payload.name
       );
       if (existingItem) {
-        state.basketList = state.basketList.map((item) =>
+        state.basketList = state.basketList.map(item =>
           item.name === action.payload.name
             ? { ...item, count: item.count + 1 }
             : item
@@ -28,51 +28,45 @@ const basketSlice = createSlice({
       } else {
         state.basketList.push({ ...action.payload, count: 1 });
       }
-
       state.totalPrice += action.payload.price;
     },
     increaseBasketItemQuantity: (state, action) => {
       const item = state.basketList.find(
-        (listItem) => listItem.name === action.payload
+        listItem => listItem.name === action.payload
       );
-
       if (item) {
         item.count--;
-
-        // Remove the item if count becomes 0
         if (item.count === 0) {
           state.basketList = state.basketList.filter(
-            (listItem) => listItem.name !== action.payload
+            listItem => listItem.name !== action.payload
           );
         }
-
         state.totalPrice -= item.price;
+        if (state.totalPrice < 0) {
+          state.totalPrice = 0;
+        }
       }
     },
     setBasketItemQuantity: (state, action) => {
       const item = state.basketList.find(
-        (listItem) => listItem.name === action.payload
+        listItem => listItem.name === action.payload
       );
       if (item) {
         item.count++;
         state.totalPrice += item.price;
       }
     },
-    setBasketTotalPrice: (state, action) => {
-      state.totalPrice = action.payload;
-    },
     setActiveBasket: (state, action) => {
       state.isActive = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const {
   setBasketList,
   increaseBasketItemQuantity,
   setBasketItemQuantity,
-  setBasketTotalPrice,
-  setActiveBasket
+  setActiveBasket,
 } = basketSlice.actions;
 
 export default basketSlice.reducer;
