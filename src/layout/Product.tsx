@@ -30,16 +30,20 @@ export const Product: React.FC = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getAllProduct());
     dispatch(getAllCompanies());
   }, []);
-  console.log(filters);
 
   useEffect(() => {
     if (filters) {
       dispatch(getFilteredProduct(filters));
     }
   }, [dispatch, filters]);
+
+  useEffect(() => {
+    if (selectedType) {
+      dispatch(getAllProduct({ itemType: selectedType }));
+    }
+  }, [filters]);
 
   const handleAddToCart = (product: any) => {
     dispatch(setBasketList(product));

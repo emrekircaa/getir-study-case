@@ -42,10 +42,10 @@ export const getFilteredProduct = createAsyncThunk(
 
 export const getAllProduct = createAsyncThunk(
   "getAllProduct",
-  async (params, thunkAPI) => {
+  async (params: GetAllProductParams = {}, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `https://getir-backend-7sjz.vercel.app/items`
+        `https://getir-backend-7sjz.vercel.app/items?itemType=${params.itemType}`
       );
 
       return data;

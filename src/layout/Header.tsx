@@ -15,7 +15,6 @@ export const Header: React.FC = () => {
   );
 
   const headerRef = useRef<HTMLDivElement>(null);
-
   // Add an event listener to handle clicks outside the Header component
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -27,9 +26,7 @@ export const Header: React.FC = () => {
         dispatch(setActiveBasket(false));
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       // Clean up the event listener on component unmount
       document.removeEventListener("mousedown", handleClickOutside);

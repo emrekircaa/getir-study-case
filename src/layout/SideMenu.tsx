@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Card } from "../components/Card";
 import { ShortingRadio } from "../components/ShortingRadio/ShortingRadio";
@@ -6,8 +6,7 @@ import { Input } from "../components/Input";
 import { Checkbox } from "../components/Checkbox";
 import { useAppDispatch } from "../hooks/useAppDistpatch";
 import { useSelector } from "react-redux";
-import { getAllCompanies, getBrands } from "../store/brands/brandSlice";
-import { getFilteredProduct } from "../store/product/productSlice";
+import { getBrands } from "../store/brands/brandSlice";
 import { getTags } from "../store/tags/tagsSlice";
 import { setFilter } from "../store/filter/filterSlice";
 import { debounce } from "../utils/debounce";
@@ -28,14 +27,12 @@ export const SideMenu: React.FC = () => {
     (state: any) => state.brand
   );
   const { tags } = useSelector((state: any) => state.tag);
-
   const [filteredBrands, setFilteredBrands] = useState([]);
   const [filteredTags, setFilteredTags] = useState([]);
-
-  const [searchTerm, setSearchTerm] = useState("");
+  const [brandSearchTerm, setBrandSearchTerm] = useState("");
+  const [tagSearchTerm, setTagSearchTerm] = useState("");
   const [brandSelected, setBrandSelected] = useState("");
   const [tagSelected, setTagSelected] = useState("");
-  const [searchTagTerm, setSearchTagTerm] = useState("");
   const filters = useSelector((store: any) => store.filter);
 
   useEffect(() => {
@@ -44,7 +41,6 @@ export const SideMenu: React.FC = () => {
       dispatch(getTags(product));
     }
   }, [product, companies, dispatch]);
-
   useEffect(() => {
     setFilteredBrands(brands);
     setFilteredTags(tags);
@@ -60,35 +56,21 @@ export const SideMenu: React.FC = () => {
     dispatch(setFilter({ ...filters, tag: tag?.name, page: 1 }));
   };
 
-  const handleSearch = debounce((search: string) => {
+  const handleBrandSearch = debounce((search: string) => {
+    setBrandSearchTerm(search);
     const filtered = brands.filter((item: any) =>
       item.name.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredBrands(filtered);
-  }, 300);
+  }, 100);
+
   const handleTagSearch = debounce((search: string) => {
+    setTagSearchTerm(search);
     const filtered = tags.filter((item: any) =>
       item.name.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredTags(filtered);
-  }, 300);
-
-  useEffect(() => {
-    if (searchTerm) {
-      handleSearch(searchTerm);
-    } else {
-      setFilteredBrands(brands);
-    }
-  }, [searchTerm]);
-
-  useEffect(() => {
-    if (searchTagTerm) {
-      handleTagSearch(searchTagTerm);
-    } else {
-      setFilteredTags(tags);
-    }
-  }, [searchTagTerm]);
-  console.log(isLoading);
+  }, 100);
   return (
     <StyledSideMenu>
       <StyledSideMenuContent>
@@ -99,8 +81,8 @@ export const SideMenu: React.FC = () => {
           <StyledInputWrapper>
             <Input
               placeHolder="Search brands"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
+              value={brandSearchTerm}
+              onChange={e => handleBrandSearch(e.target.value)}
             />
           </StyledInputWrapper>
           {isLoading ? (
@@ -126,8 +108,8 @@ export const SideMenu: React.FC = () => {
           <StyledInputWrapper>
             <Input
               placeHolder="Search Tags"
-              value={searchTagTerm}
-              onChange={e => setSearchTagTerm(e.target.value)}
+              value={tagSearchTerm}
+              onChange={e => handleTagSearch(e.target.value)}
             />
           </StyledInputWrapper>
 

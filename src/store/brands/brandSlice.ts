@@ -80,9 +80,7 @@ export const getBrands =
       ];
 
       dispatch(setBrands(allBrands));
-    } catch (error) {
-      // console.error("Error in getBrands:", error);
-    }
+    } catch (error) {}
   };
 
 export default brandSlice.reducer;
