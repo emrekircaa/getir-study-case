@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Products App for Getir Case Study
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -19,7 +19,7 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `npm build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -29,18 +29,106 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Frontend
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - Development
+    - [React](https://react.dev/)
+    - [TypeScript](https://www.typescriptlang.org/)
+    - [styled-components](https://styled-components.com/)
+    - [Redux](https://redux-toolkit.js.org/)
+    - [React Content Loader](https://skeletonreact.com)
+  - Testing
+    - [Jest](https://jestjs.io/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Live Versions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+  - Frontend Live via Vercell [link]()
+  - Backend Api Live via Vercell [link](https://getir-backend-7sjz.vercel.app/)
 
-## Learn More
+- Folder Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+├── src
+│   ├── App.tsx
+│   ├── assets
+│   │   ├── icons
+│   │   │   ├── BasketH.tsx
+│   │   │   ├── Impluse.tsx
+│   │   │   ├── LeftArrow.tsx
+│   │   │   ├── Logo.tsx
+│   │   │   ├── Minus.tsx
+│   │   │   ├── RightArrow.tsx
+│   │   │   └── Tick.tsx
+│   │   └── image
+│   │       └── defaultImage.png
+│   ├── components
+│   │   ├── BasketItem
+│   │   │   └── BasketItem.tsx
+│   │   ├── Button
+│   │   │   ├── index.tsx
+│   │   │   └── style.ts
+│   │   ├── Card
+│   │   │   └── index.tsx
+│   │   ├── Checkbox
+│   │   │   ├── SkeletonComp.tsx
+│   │   │   └── index.tsx
+│   │   ├── Input
+│   │   │   └── index.tsx
+│   │   ├── Pagination
+│   │   │   ├── index.tsx
+│   │   │   └── styles.ts
+│   │   ├── ProductItem
+│   │   │   ├── SketelonComp.tsx
+│   │   │   └── index.tsx
+│   │   ├── ShortingRadio
+│   │   │   └── ShortingRadio.tsx
+│   │   └── __tests__
+│   │       ├── BasketItem
+│   │       ├── Button
+│   │       ├── Card
+│   │       ├── CheckBox
+│   │       ├── Input
+│   │       ├── Pagination
+│   │       ├── ProductItem
+│   │       └── ShortingRadio
+│   ├── constant
+│   │   └── api.ts
+│   ├── hooks
+│   │   └── useAppDistpatch.ts
+│   ├── index.tsx
+│   ├── layout
+│   │   ├── Basket.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── Product.tsx
+│   │   └── SideMenu.tsx
+│   ├── lib
+│   │   └── GlobalStyle.ts
+│   ├── react-app-env.d.ts
+│   ├── store
+│   │   ├── brands
+│   │   │   └── brandSlice.ts
+│   │   ├── cart
+│   │   │   └── cartSlice.ts
+│   │   ├── filter
+│   │   │   └── filterSlice.ts
+│   │   ├── product
+│   │   │   └── productSlice.ts
+│   │   ├── store.ts
+│   │   └── tags
+│   │       └── tagsSlice.ts
+│   ├── theme
+│   │   └── index.ts
+│   ├── types
+│   │   └── index.ts
+│   └── utils
+│       ├── cardSize.ts
+│       └── debounce.ts
+├── tsconfig.json
+├── README.md
+├── babel.config.js
+├── package-lock.json
+├── package.json
+```
