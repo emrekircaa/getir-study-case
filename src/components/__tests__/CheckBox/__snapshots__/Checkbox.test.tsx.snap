@@ -2,11 +2,11 @@
 
 exports[`Checkbox component renders with correct props 1`] = `
 <div
-  class="sc-aXZVg gzSItD"
+  class="sc-beySPh ftvDKx"
   data-testid="checkbox-container"
 >
   <div
-    class="sc-gEvEer kRjVVm"
+    class="sc-guDLey gUihLF"
   >
     <svg
       color="#fff"
@@ -25,18 +25,20 @@ exports[`Checkbox component renders with correct props 1`] = `
     </svg>
   </div>
   <div
-    class="sc-eqUAAy gPAOsw"
+    class="sc-dmyCSP dLnuKV"
     title="label (3)"
   >
     <span
-      class="sc-fqkvVR cUpAQC"
+      class="sc-hLQSwg tXaHH"
     >
       label
     </span>
     <span
-      class="sc-dcJsrY glDVMx"
+      class="sc-eDLKkx fVYwBA"
     >
-       (1)
+      (
+      3
+      )
     </span>
   </div>
 </div>

@@ -2,11 +2,11 @@
 
 exports[`ProductItem component renders with correct props 1`] = `
 <div
-  class="sc-eqUAAy irCVWI"
+  class="sc-dmyCSP fdHOWZ"
   data-testid="ProductItem"
 >
   <div
-    class="sc-fqkvVR kWyazK"
+    class="sc-hLQSwg jJSUZT"
   >
     <img
       alt="Product A"
@@ -14,10 +14,10 @@ exports[`ProductItem component renders with correct props 1`] = `
     />
   </div>
   <div
-    class="sc-gEvEer kKQnYo"
+    class="sc-guDLey dDYrwN"
   >
     <div
-      class="sc-dcJsrY euxwgw"
+      class="sc-eDLKkx gcxRue"
     >
       <span>
         ₺
@@ -26,13 +26,13 @@ exports[`ProductItem component renders with correct props 1`] = `
       10.99
     </div>
     <div
-      class="sc-iGgWBj ihxlYh"
+      class="sc-jTQCzO hopybM"
     >
       Product A
     </div>
   </div>
   <button
-    class="sc-aXZVg jHQvpS"
+    class="sc-beySPh hqIXqv"
   >
     Add
   </button>

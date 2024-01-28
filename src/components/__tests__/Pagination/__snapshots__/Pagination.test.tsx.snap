@@ -2,7 +2,7 @@
 
 exports[`Pagination component should match snapshot 1`] = `
 <div
-  class="sc-aXZVg kLGOtx"
+  class="sc-beySPh ldkZGr"
   data-testid="pagination"
 >
   <ul
@@ -21,7 +21,7 @@ exports[`Pagination component should match snapshot 1`] = `
         tabindex="-1"
       >
         <div
-          class="sc-eqUAAy bTmlgM"
+          class="sc-dmyCSP bYFfdJ"
         >
           <svg
             fill="none"
@@ -37,7 +37,7 @@ exports[`Pagination component should match snapshot 1`] = `
             />
           </svg>
           <div
-            class="sc-gEvEer gkWgdc"
+            class="sc-guDLey doivZR"
           >
             Prev
           </div>
@@ -143,10 +143,10 @@ exports[`Pagination component should match snapshot 1`] = `
         tabindex="0"
       >
         <div
-          class="sc-eqUAAy bTmlgM"
+          class="sc-dmyCSP bYFfdJ"
         >
           <div
-            class="sc-gEvEer gkWgdc"
+            class="sc-guDLey doivZR"
           >
             Next
           </div>

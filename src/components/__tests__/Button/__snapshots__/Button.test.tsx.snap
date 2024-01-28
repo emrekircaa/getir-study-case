@@ -3,7 +3,7 @@
 exports[`Button component renders correctly with default props 1`] = `
 <div>
   <button
-    class="sc-aXZVg jHQvpS"
+    class="sc-beySPh hqIXqv"
   >
     Default Button
   </button>

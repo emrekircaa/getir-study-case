@@ -2,29 +2,29 @@
 
 exports[`BasketItem component renders with correct props 1`] = `
 <div
-  class="sc-gEvEer kyMQUm"
+  class="sc-guDLey iANKeD"
   data-testid="basket-item-container"
 >
   <div
-    class="sc-eqUAAy geJcCj"
+    class="sc-dmyCSP cgIVqO"
   >
     <div
-      class="sc-fqkvVR chovyL"
+      class="sc-hLQSwg evcVy"
     >
       Sample Item
     </div>
     <div
-      class="sc-dcJsrY epQLBC"
+      class="sc-eDLKkx gGkDDn"
     >
       ₺
       10
     </div>
   </div>
   <div
-    class="sc-iGgWBj eCASMi"
+    class="sc-jTQCzO XKTcU"
   >
     <button
-      class="sc-aXZVg sc-kAyceB jHQvpS kZetFM"
+      class="sc-beySPh sc-iBdnpw hqIXqv dEzKEc"
       data-testid="decrease-button"
     >
       <svg
@@ -44,12 +44,12 @@ exports[`BasketItem component renders with correct props 1`] = `
       </svg>
     </button>
     <div
-      class="sc-gsFSXq inSQFr"
+      class="sc-gLLuof jUcpbd"
     >
       3
     </div>
     <button
-      class="sc-aXZVg sc-kAyceB jHQvpS kZetFM"
+      class="sc-beySPh sc-iBdnpw hqIXqv dEzKEc"
       data-testid="increase-button"
     >
       <svg

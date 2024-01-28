@@ -2,7 +2,7 @@
 
 exports[`Input renders with correct props 1`] = `
 <input
-  class="sc-aXZVg jCpxve"
+  class="sc-beySPh eZPbJQ"
   data-testid="input"
   placeholder="placeholder"
   value=""
@@ -11,7 +11,7 @@ exports[`Input renders with correct props 1`] = `
 
 exports[`Input should match snapshot with value 1`] = `
 <input
-  class="sc-aXZVg jCpxve"
+  class="sc-beySPh eZPbJQ"
   data-testid="input"
   placeholder="placeholder"
   value=""

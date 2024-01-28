@@ -2,7 +2,7 @@
 
 exports[`Card component should match snapshot with large card 1`] = `
 <div
-  class="sc-gEvEer kENWwO"
+  class="sc-guDLey kUvsfX"
   data-testid="card-item-container"
 >
   child
@@ -11,14 +11,14 @@ exports[`Card component should match snapshot with large card 1`] = `
 
 exports[`Card component should match snapshot with lg card 1`] = `
 <div
-  class="sc-gEvEer eAIEtN"
+  class="sc-guDLey gUxpnI"
   data-testid="card-item-container"
 />
 `;
 
 exports[`Card component should match snapshot with sm card 1`] = `
 <div
-  class="sc-gEvEer kENWwO"
+  class="sc-guDLey kUvsfX"
   data-testid="card-item-container"
 />
 `;
