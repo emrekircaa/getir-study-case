@@ -1,12 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-type filter = {
-  itemType: string;
-  sort: string;
-  page: number;
-  slug: string;
-  tag: string;
-};
-const initialState: filter = {
+import { filterStateType } from "../../types";
+
+const initialState: filterStateType = {
   itemType: "",
   sort: "",
   page: 1,

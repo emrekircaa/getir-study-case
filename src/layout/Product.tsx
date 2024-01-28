@@ -32,7 +32,6 @@ export const Product: React.FC = () => {
   useEffect(() => {
     dispatch(getAllCompanies());
   }, []);
-  console.log(filters)
   useEffect(() => {
     if (filters) {
       dispatch(getFilteredProduct(filters));

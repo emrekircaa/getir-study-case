@@ -1,14 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { CompanyType } from "../../types";
+import { BrandStateType } from "../../types";
+import API_URL from "../../constant/api";
 
-interface BrandState {
-  companies: CompanyType[];
-  brands: CompanyType[];
-  isLoading: boolean;
-}
-
-const initialState: BrandState = {
+const initialState: BrandStateType = {
   brands: [],
   companies: [],
   isLoading: true,
@@ -18,9 +13,7 @@ export const getAllCompanies = createAsyncThunk(
   "getAllCompanies",
   async (name, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `https://getir-backend-7sjz.vercel.app/companies`
-      );
+      const { data } = await axios.get(`${API_URL}/companies`);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue("something went wrong");

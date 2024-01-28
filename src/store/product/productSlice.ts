@@ -1,13 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { ProductItemType } from "../../types";
+import { productStateType } from "../../types";
+import API_URL from "../../constant/api";
 
-interface productType {
-  filteredProduct: ProductItemType[];
-  allProduct: ProductItemType[];
-  isLoading: boolean;
-}
-const initialState: productType = {
+const initialState: productStateType = {
   filteredProduct: [],
   allProduct: [],
   isLoading: true,
@@ -29,9 +25,7 @@ export const getFilteredProduct = createAsyncThunk(
         .filter(param => param !== "")
         .join("&");
       const { data } = await axios.get(
-        `https://getir-backend-7sjz.vercel.app/items${
-          queryString ? `?${queryString}` : ""
-        }`
+        `${API_URL}/items${queryString ? `?${queryString}` : ""}`
       );
       return data;
     } catch (error) {
@@ -45,7 +39,7 @@ export const getAllProduct = createAsyncThunk(
   async (params: GetAllProductParams = {}, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `https://getir-backend-7sjz.vercel.app/items?itemType=${params.itemType}`
+        `${API_URL}/items?itemType=${params.itemType}`
       );
 
       return data;

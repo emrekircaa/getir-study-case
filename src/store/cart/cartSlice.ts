@@ -1,10 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { BasketItemType } from "../../types";
-export type BasketStateType = {
-  basketList: BasketItemType[];
-  totalPrice: number;
-  isActive: boolean;
-};
+import { BasketStateType } from "../../types";
+
 const initialState: BasketStateType = {
   basketList: [],
   totalPrice: 0,
