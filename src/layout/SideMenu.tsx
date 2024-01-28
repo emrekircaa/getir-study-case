@@ -6,7 +6,7 @@ import { Input } from "../components/Input";
 import { Checkbox } from "../components/Checkbox";
 import { useAppDispatch } from "../hooks/useAppDistpatch";
 import { useSelector } from "react-redux";
-import { getBrands } from "../store/brands/brandSlice";
+import { getBrands } from "../store/brands/baskerSlice";
 import { getTags } from "../store/tags/tagsSlice";
 import { setFilter } from "../store/filter/filterSlice";
 import { debounce } from "../utils/debounce";

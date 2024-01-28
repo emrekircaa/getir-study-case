@@ -6,7 +6,7 @@ import { RootState } from "../store/store";
 import { useSelector } from "react-redux";
 import { colors } from "../theme";
 import { useAppDispatch } from "../hooks/useAppDistpatch";
-import { setActiveBasket } from "../store/cart/cartSlice";
+import { setActiveBasket } from "../store/basket/cartSlice";
 
 export const Header: React.FC = () => {
   const dispatch = useAppDispatch();

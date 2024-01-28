@@ -1,7 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "./product/productSlice";
-import basketSlice from "./cart/cartSlice";
-import brandSlice from "./brands/brandSlice";
+import basketSlice from "./basket/cartSlice";
+import brandSlice from "./brands/baskerSlice";
 import tagsSlice from "./tags/tagsSlice";
 import filterSlice from "./filter/filterSlice";
 export const store = configureStore({

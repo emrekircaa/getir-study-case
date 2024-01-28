@@ -7,7 +7,7 @@ import { useAppDispatch } from "../hooks/useAppDistpatch";
 import {
   increaseBasketItemQuantity,
   setBasketItemQuantity
-} from "../store/cart/cartSlice";
+} from "../store/basket/cartSlice";
 import { colors } from "../theme";
 
 export const Basket: React.FC = () => {
@@ -23,17 +23,17 @@ export const Basket: React.FC = () => {
           <StyledCounterWrapper>
             {basketList.length > 0
               ? basketList.map((item: any) => (
-                  <BasketItem
-                    key={item.name}
-                    price={item.price}
-                    name={item.name}
-                    itemCount={item.count}
-                    increase={() => dispatch(setBasketItemQuantity(item.name))}
-                    decrease={() =>
-                      dispatch(increaseBasketItemQuantity(item.name))
-                    }
-                  />
-                ))
+                <BasketItem
+                  key={item.name}
+                  price={item.price}
+                  name={item.name}
+                  itemCount={item.count}
+                  increase={() => dispatch(setBasketItemQuantity(item.name))}
+                  decrease={() =>
+                    dispatch(increaseBasketItemQuantity(item.name))
+                  }
+                />
+              ))
               : "No items in basket"}
           </StyledCounterWrapper>
           <StyledBasketPriceWrapper>

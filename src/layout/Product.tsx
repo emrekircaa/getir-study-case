@@ -9,10 +9,10 @@ import {
   getFilteredProduct,
 } from "../store/product/productSlice";
 import Skeleton from "../components/ProductItem/SketelonComp";
-import { setBasketList } from "../store/cart/cartSlice";
+import { setBasketList } from "../store/basket/cartSlice";
 import { StyledButton } from "../components/Button/style";
 import { colors } from "../theme";
-import { getAllCompanies } from "../store/brands/brandSlice";
+import { getAllCompanies } from "../store/brands/baskerSlice";
 import { setFilter } from "../store/filter/filterSlice";
 
 const ITEM_TYPES: any[] = [
