@@ -10,12 +10,12 @@ interface productType {
 const initialState: productType = {
   filteredProduct: [],
   allProduct: [],
-  isLoading: true
+  isLoading: true,
 };
 interface GetAllProductParams {
-  [key: string]: string | undefined;
+  [key: string]: string | number | undefined;
   itemType?: string;
-  page?: string;
+  page?: number;
   sort?: string;
   slug?: any;
 }
@@ -25,13 +25,13 @@ export const getFilteredProduct = createAsyncThunk(
   async (params: GetAllProductParams = {}, thunkAPI) => {
     try {
       const queryString = Object.keys(params)
-        .map((key) => (params[key] ? `${key}=${params[key]}` : ""))
-        .filter((param) => param !== "")
+        .map(key => (params[key] ? `${key}=${params[key]}` : ""))
+        .filter(param => param !== "")
         .join("&");
       const { data } = await axios.get(
         `https://getir-backend-7sjz.vercel.app/items${
           queryString ? `?${queryString}` : ""
-        }&page=1`
+        }`
       );
       return data;
     } catch (error) {
@@ -58,9 +58,9 @@ const productSlice = createSlice({
   name: "productSlice",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
-      .addCase(getFilteredProduct.pending, (state) => {
+      .addCase(getFilteredProduct.pending, state => {
         state.isLoading = true;
       })
       .addCase(getFilteredProduct.fulfilled, (state, action) => {
@@ -71,7 +71,7 @@ const productSlice = createSlice({
         state.isLoading = false;
       })
 
-      .addCase(getAllProduct.pending, (state) => {
+      .addCase(getAllProduct.pending, state => {
         state.isLoading = true;
       })
       .addCase(getAllProduct.fulfilled, (state, action) => {
@@ -81,7 +81,7 @@ const productSlice = createSlice({
       .addCase(getAllProduct.rejected, (state, action) => {
         state.isLoading = false;
       });
-  }
+  },
 });
 
 export default productSlice.reducer;
