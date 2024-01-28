@@ -13,7 +13,7 @@ interface GetAllProductParams {
   itemType?: string;
   page?: number;
   sort?: string;
-  slug?: any;
+  slug?: string;
 }
 
 export const getFilteredProduct = createAsyncThunk(
