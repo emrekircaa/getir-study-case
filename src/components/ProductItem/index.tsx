@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { colors } from "../../theme";
 import { Button } from "../Button";
@@ -9,27 +9,25 @@ interface ProductItem {
   onAddButtonClick: () => void;
 }
 
-export const ProductItem: React.FC<ProductItem> = ({
-  price,
-  name,
-  onAddButtonClick
-}) => {
-  return (
-    <StyledProductItemCard data-testid="ProductItem">
-      <StyledImageWrapper>
-        <img src={defaultImage} alt={name} />
-      </StyledImageWrapper>
-      <StyledProductItemTextContainer>
-        <StyledPriceText>
-          <span>₺</span> {price.toFixed(2)}
-        </StyledPriceText>
-        <StyledNameText>{name}</StyledNameText>
-      </StyledProductItemTextContainer>
+export const ProductItem: React.FC<ProductItem> = memo(
+  ({ price, name, onAddButtonClick }) => {
+    return (
+      <StyledProductItemCard data-testid="ProductItem">
+        <StyledImageWrapper>
+          <img src={defaultImage} alt={name} />
+        </StyledImageWrapper>
+        <StyledProductItemTextContainer>
+          <StyledPriceText>
+            <span>₺</span> {price.toFixed(2)}
+          </StyledPriceText>
+          <StyledNameText>{name}</StyledNameText>
+        </StyledProductItemTextContainer>
 
-      <Button onClick={() => onAddButtonClick()}>Add</Button>
-    </StyledProductItemCard>
-  );
-};
+        <Button onClick={() => onAddButtonClick()}>Add</Button>
+      </StyledProductItemCard>
+    );
+  }
+);
 
 const StyledProductItemTextContainer = styled.div`
   display: flex;

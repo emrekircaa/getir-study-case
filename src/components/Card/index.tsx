@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import { CardSizeType } from "../../types";
 import { getCardWidth } from "../../utils/cardSize";
@@ -10,7 +10,7 @@ interface CardProps {
   children?: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps> = ({ children, size, title }) => {
+export const Card: React.FC<CardProps> = memo(({ children, size, title }) => {
   return (
     <StyledCardContainer>
       <StyledCardTitle>{title}</StyledCardTitle>
@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({ children, size, title }) => {
       </StyledCard>
     </StyledCardContainer>
   );
-};
+});
 
 const StyledCardContainer = styled.div``;
 const StyledCard = styled.div<{ size: CardSizeType }>`

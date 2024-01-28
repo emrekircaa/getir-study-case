@@ -3,10 +3,15 @@ import styled from "styled-components";
 import Tick from "../../assets/icons/Tick";
 import { colors } from "../../theme";
 import { useAppDispatch } from "../../hooks/useAppDistpatch";
-import { getFilteredProduct } from "../../store/product/productSlice";
+import { useSelector } from "react-redux";
+import { setFilter } from "../../store/filter/filterSlice";
 
+type data = {
+  id: string;
+  label: string;
+};
 interface ShortingRadioProps {
-  data?: any[];
+  data?: data[];
   onSelectedRadioChange?: any;
   selectedOptionId?: boolean;
 }
@@ -14,11 +19,12 @@ export const ShortingRadio: React.FC<ShortingRadioProps> = memo(
   ({ data, onSelectedRadioChange, selectedOptionId }) => {
     const [selectedRadioId, setSelectedRadioId] = useState(selectedOptionId);
     const dispatch = useAppDispatch();
+    const filters = useSelector((store: any) => store.filter);
 
     const handleClick = (id: any) => {
       setSelectedRadioId(id);
       if (onSelectedRadioChange) onSelectedRadioChange(id);
-      dispatch(getFilteredProduct({ sort: id }));
+      dispatch(setFilter({ ...filters, sort: id, page: 1 }));
     };
     return (
       <StyledRadiosContent>

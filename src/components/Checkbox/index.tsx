@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import styled from "styled-components";
 import Tick from "../../assets/icons/Tick";
 import { colors } from "../../theme";
@@ -9,27 +9,24 @@ interface CheckboxProps {
   label: string;
   count: number;
 }
-export const Checkbox: React.FC<CheckboxProps> = ({
-  onChange,
-  isChecked,
-  label,
-  count
-}) => {
-  return (
-    <StyledCheckboxContainer
-      data-testid="checkbox-container"
-      onClick={onChange}
-    >
-      <StyledCheckbox checked={isChecked}>
-        <Tick color="#fff" />
-      </StyledCheckbox>
-      <StyledCheckboxLabel title={`${label} (${count})`}>
-        <StyledCheckboxLabelText>{label}</StyledCheckboxLabelText>
-        <StyledCheckboxCount>({count})</StyledCheckboxCount>
-      </StyledCheckboxLabel>
-    </StyledCheckboxContainer>
-  );
-};
+export const Checkbox: React.FC<CheckboxProps> = memo(
+  ({ onChange, isChecked, label, count }) => {
+    return (
+      <StyledCheckboxContainer
+        data-testid="checkbox-container"
+        onClick={onChange}
+      >
+        <StyledCheckbox checked={isChecked}>
+          <Tick color="#fff" />
+        </StyledCheckbox>
+        <StyledCheckboxLabel title={`${label} (${count})`}>
+          <StyledCheckboxLabelText>{label}</StyledCheckboxLabelText>
+          <StyledCheckboxCount>({count})</StyledCheckboxCount>
+        </StyledCheckboxLabel>
+      </StyledCheckboxContainer>
+    );
+  }
+);
 
 const StyledCheckboxContainer = styled.div`
   display: flex;
