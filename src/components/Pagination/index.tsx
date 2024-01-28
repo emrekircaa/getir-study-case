@@ -4,21 +4,20 @@ import * as styles from "./styles";
 import RightArrow from "../../assets/icons/RightArrow";
 import LeftArrow from "../../assets/icons/LeftArrow";
 import ReactPaginate from "react-paginate";
+import styled from "styled-components";
 
 interface PaginationProps {
   pageCount: number; // total page count
   selectedPageIndex?: number; // currently selected page index
-  onSelectedPageIndexChange: () => void; // function to invoke on selecting new pagination page
+  handlePageClick: (event: any) => void;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
   pageCount,
   selectedPageIndex = 0,
-  onSelectedPageIndexChange,
+  handlePageClick,
   ...rest
 }) => {
-  const handlePageClick = () => onSelectedPageIndexChange();
-
   const getLabel = React.useCallback((isNextPage: boolean) => {
     return (
       <styles.StyledLabel>

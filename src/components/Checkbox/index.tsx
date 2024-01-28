@@ -13,19 +13,19 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
   isChecked,
   label,
-  count,
+  count
 }) => {
   return (
     <StyledCheckboxContainer
       data-testid="checkbox-container"
-      onClick={() => onChange()}
+      onClick={onChange}
     >
       <StyledCheckbox checked={isChecked}>
         <Tick color="#fff" />
       </StyledCheckbox>
       <StyledCheckboxLabel title={`${label} (${count})`}>
         <StyledCheckboxLabelText>{label}</StyledCheckboxLabelText>
-        <StyledCheckboxCount> (1)</StyledCheckboxCount>
+        <StyledCheckboxCount>({count})</StyledCheckboxCount>
       </StyledCheckboxLabel>
     </StyledCheckboxContainer>
   );
@@ -47,7 +47,7 @@ const StyledCheckbox = styled.div<{ checked: boolean }>`
   align-items: center;
   justify-content: center;
   background: ${({ checked }) =>
-    checked ? `${colors.gray500}` : `${colors.white}`};
+    checked ? `${colors.primary}` : `${colors.white}`};
   box-shadow: 0px 1px 7px rgba(93, 56, 192, 0.4);
   border-radius: 2px;
   height: 22px;

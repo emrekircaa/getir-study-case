@@ -4,15 +4,15 @@ import { colors } from "../../theme";
 import { Button } from "../Button";
 import defaultImage from "../../assets/image/defaultImage.png";
 interface ProductItem {
-  price: number; // price of the item
-  name: string; // name of the item
-  onAddButtonClick: () => void; // function to invoke on click on add button
+  price: number;
+  name: string;
+  onAddButtonClick: () => void;
 }
 
 export const ProductItem: React.FC<ProductItem> = ({
   price,
   name,
-  onAddButtonClick,
+  onAddButtonClick
 }) => {
   return (
     <StyledProductItemCard data-testid="ProductItem">

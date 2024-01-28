@@ -6,9 +6,9 @@ import Impluse from "../../assets/icons/Impluse";
 import { colors } from "../../theme";
 
 interface BasketItemProps {
-  name: string; // name of the counter item
-  price: number; // price of the counter item
-  itemCount: number; // current item count of the counter item
+  name: string;
+  price: number;
+  itemCount: number;
   increase: () => void;
   decrease: () => void;
 }
@@ -17,7 +17,7 @@ export const BasketItem: React.FC<BasketItemProps> = ({
   price,
   itemCount,
   increase,
-  decrease,
+  decrease
 }) => {
   return (
     <StyledBasketItemContainer data-testid="basket-item-container">

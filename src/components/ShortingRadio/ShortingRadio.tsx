@@ -1,45 +1,45 @@
-import React from "react";
+import React, { useState, memo } from "react";
 import styled from "styled-components";
 import Tick from "../../assets/icons/Tick";
 import { colors } from "../../theme";
+import { useAppDispatch } from "../../hooks/useAppDistpatch";
+import { getFilteredProduct } from "../../store/product/productSlice";
 
 interface ShortingRadioProps {
   data?: any[];
   onSelectedRadioChange?: any;
   selectedOptionId?: boolean;
 }
-export const ShortingRadio: React.FC<ShortingRadioProps> = ({
-  data,
-  onSelectedRadioChange,
-  selectedOptionId,
-}) => {
-  const [selectedRadioId, setSelectedRadioId] =
-    React.useState(selectedOptionId);
+export const ShortingRadio: React.FC<ShortingRadioProps> = memo(
+  ({ data, onSelectedRadioChange, selectedOptionId }) => {
+    const [selectedRadioId, setSelectedRadioId] = useState(selectedOptionId);
+    const dispatch = useAppDispatch();
 
-  const handleClick = (id: any) => {
-    setSelectedRadioId(id);
-    if (onSelectedRadioChange) onSelectedRadioChange(id);
-  };
-
-  return (
-    <StyledRadiosContent>
-      {data &&
-        data.length > 0 &&
-        data.map((item: any) => (
-          <StyledRadioWrapper
-            onClick={() => handleClick(item.id)}
-            key={item.id}
-            data-testid={`radio-${item.id}`}
-          >
-            <StyledRadio checked={item.id === selectedRadioId}>
-              {item.id === selectedRadioId && <Tick />}
-            </StyledRadio>
-            <StyledRadioLabel>{item.label}</StyledRadioLabel>
-          </StyledRadioWrapper>
-        ))}
-    </StyledRadiosContent>
-  );
-};
+    const handleClick = (id: any) => {
+      setSelectedRadioId(id);
+      if (onSelectedRadioChange) onSelectedRadioChange(id);
+      dispatch(getFilteredProduct({ sort: id }));
+    };
+    return (
+      <StyledRadiosContent>
+        {data &&
+          data.length > 0 &&
+          data.map((item: any) => (
+            <StyledRadioWrapper
+              onClick={() => handleClick(item.id)}
+              key={item.id}
+              data-testid={`radio-${item.id}`}
+            >
+              <StyledRadio checked={item.id === selectedRadioId}>
+                {item.id === selectedRadioId && <Tick />}
+              </StyledRadio>
+              <StyledRadioLabel>{item.label}</StyledRadioLabel>
+            </StyledRadioWrapper>
+          ))}
+      </StyledRadiosContent>
+    );
+  }
+);
 
 const StyledRadiosContent = styled.div`
   display: flex;

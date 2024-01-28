@@ -1,18 +1,16 @@
 import React from "react";
 import styled from "styled-components";
+import { CardSizeType } from "../../types";
 import { getCardWidth } from "../../utils/cardSize";
 import { colors } from "../../theme";
-type CardSizeType = "sm" | "lg";
+
 interface CardProps {
   title: string; // title of the card
   size: CardSizeType; // size of the card
+  children?: React.ReactNode;
 }
 
-export const Card: React.FC<CardProps & React.PropsWithChildren> = ({
-  children,
-  size,
-  title,
-}) => {
+export const Card: React.FC<CardProps> = ({ children, size, title }) => {
   return (
     <StyledCardContainer>
       <StyledCardTitle>{title}</StyledCardTitle>
@@ -38,9 +36,15 @@ const StyledCard = styled.div<{ size: CardSizeType }>`
   input {
     display: block;
     position: relative;
-    width: 248px;
-    margin-left: 24px;
-    margin-right: 24px;
+    width: 100%;
+  }
+  @media (max-width: 1023px) and (min-width: 960px) {
+    height: 244px;
+  }
+  @media (max-width: 959px) {
+    height: auto;
+    max-width: 576px;
+    width: 100%;
   }
 `;
 const StyledCardTitle = styled.div`

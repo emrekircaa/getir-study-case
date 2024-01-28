@@ -11,7 +11,7 @@ interface InputProps {
 export const Input: React.FC<InputProps> = ({
   placeHolder,
   value,
-  onChange,
+  onChange
 }) => {
   return (
     <StyledInput

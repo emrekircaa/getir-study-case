@@ -1,8 +1,13 @@
 import styled from "styled-components";
-import { colors } from "../../theme";
+import {breakpoints, colors} from "../../theme";
 
 export const PaginationContainer = styled.div`
   margin-top: 32px;
+    @media (max-width: ${breakpoints.xs}){
+    ul{
+        max-width: 280px;
+    }
+    }
   ul {
     display: flex !important;
     justify-content: space-around;
