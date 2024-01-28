@@ -7,24 +7,24 @@ import { Checkbox } from "../components/Checkbox";
 import { useAppDispatch } from "../hooks/useAppDistpatch";
 import { useSelector } from "react-redux";
 import { getAllCompanies, getBrands } from "../store/brands/brandSlice";
-import { debounce } from "../utils/debounce";
 import { getFilteredProduct } from "../store/product/productSlice";
 import { getTags } from "../store/tags/tagsSlice";
+import { setFilter } from "../store/filter/filterSlice";
+import { debounce } from "../utils/debounce";
+import Skeleton from "../components/Checkbox/SkeletonComp";
 
 const SORTING_OPTIONS = [
   { id: "priceLowToHigh", label: "Price low to high" },
   { id: "priceHighToLow", label: "Price high to low" },
   { id: "newToOld", label: "New to old" },
-  { id: "oldToNew", label: "Old to new" }
+  { id: "oldToNew", label: "Old to new" },
 ];
 
 export const SideMenu: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const { allProduct: product } = useSelector(
-    (state: any) => state.product
-  );
-  const { brands, isLoading, isLoading1, companies } = useSelector(
+  const { allProduct: product } = useSelector((state: any) => state.product);
+  const { brands, companies, isLoading } = useSelector(
     (state: any) => state.brand
   );
   const { tags } = useSelector((state: any) => state.tag);
@@ -36,13 +36,30 @@ export const SideMenu: React.FC = () => {
   const [brandSelected, setBrandSelected] = useState("");
   const [tagSelected, setTagSelected] = useState("");
   const [searchTagTerm, setSearchTagTerm] = useState("");
+  const filters = useSelector((store: any) => store.filter);
 
   useEffect(() => {
-    setFilteredBrands(brands)
-    setFilteredTags(tags)
-  
-  }, [brands, tags])
-  
+    if (companies && product && companies.length > 0 && product.length > 0) {
+      dispatch(getBrands(product, companies));
+      dispatch(getTags(product));
+    }
+  }, [product, companies, dispatch]);
+
+  useEffect(() => {
+    setFilteredBrands(brands);
+    setFilteredTags(tags);
+  }, [brands, tags]);
+
+  const handleSetSelectedBrand = (brand: any) => {
+    setBrandSelected(brand.slug);
+    dispatch(setFilter({ ...filters, slug: brand?.slug, page: 1 }));
+  };
+
+  const handleSetSelectedTag = (tag: any) => {
+    setTagSelected(tag.name);
+    dispatch(setFilter({ ...filters, tag: tag?.name, page: 1 }));
+  };
+
   const handleSearch = debounce((search: string) => {
     const filtered = brands.filter((item: any) =>
       item.name.toLowerCase().includes(search.toLowerCase())
@@ -56,22 +73,6 @@ export const SideMenu: React.FC = () => {
     setFilteredTags(filtered);
   }, 300);
 
-  const handleSetSelectedBrand = (brand: any) => {
-    setBrandSelected(brand.slug);
-    dispatch(getFilteredProduct({ slug: brand?.slug }));
-  };
-
-  const handleSetSelectedTag = (tag: any) => {
-    setTagSelected(tag.name);
-    dispatch(getFilteredProduct({ tag: tag?.name }));
-  };
-
-  useEffect(() => {
-    if (companies && product && companies.length > 0 && product.length > 0) {
-      dispatch(getBrands(product, companies));
-      dispatch(getTags(product));
-    }
-  }, [product, companies, dispatch]);
   useEffect(() => {
     if (searchTerm) {
       handleSearch(searchTerm);
@@ -79,6 +80,7 @@ export const SideMenu: React.FC = () => {
       setFilteredBrands(brands);
     }
   }, [searchTerm]);
+
   useEffect(() => {
     if (searchTagTerm) {
       handleTagSearch(searchTagTerm);
@@ -86,6 +88,7 @@ export const SideMenu: React.FC = () => {
       setFilteredTags(tags);
     }
   }, [searchTagTerm]);
+  console.log(isLoading);
   return (
     <StyledSideMenu>
       <StyledSideMenuContent>
@@ -94,13 +97,15 @@ export const SideMenu: React.FC = () => {
         </Card>
         <Card size="sm" title="Brands">
           <StyledInputWrapper>
-          <Input
-            placeHolder="Search brands"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+            <Input
+              placeHolder="Search brands"
+              value={searchTerm}
+              onChange={e => setSearchTerm(e.target.value)}
+            />
           </StyledInputWrapper>
-          {
+          {isLoading ? (
+            <Skeleton />
+          ) : (
             <StyledCheckboxContent>
               {filteredBrands.length >= 1 &&
                 filteredBrands.map((brand: any) => (
@@ -115,30 +120,35 @@ export const SideMenu: React.FC = () => {
                   />
                 ))}
             </StyledCheckboxContent>
-          }
+          )}
         </Card>
         <Card size="sm" title="Tags">
           <StyledInputWrapper>
-          <Input
-            placeHolder="Search Tags"
+            <Input
+              placeHolder="Search Tags"
               value={searchTagTerm}
-              onChange={(e)=>setSearchTagTerm(e.target.value)}
-          />
+              onChange={e => setSearchTagTerm(e.target.value)}
+            />
           </StyledInputWrapper>
-          <StyledCheckboxContent>
-            {filteredTags.length >= 1 &&
-              filteredTags.map((tag: any) => (
-                <Checkbox
-                  label={tag.name}
-                  count={tag.count}
-                  onChange={() => {
-                    handleSetSelectedTag(tag);
-                  }}
-                  key={tag.name}
-                  isChecked={tagSelected === tag.name ? true : false}
-                />
-              ))}
-          </StyledCheckboxContent>
+
+          {isLoading ? (
+            <Skeleton />
+          ) : (
+            <StyledCheckboxContent>
+              {filteredTags.length >= 1 &&
+                filteredTags.map((tag: any) => (
+                  <Checkbox
+                    label={tag.name}
+                    count={tag.count}
+                    onChange={() => {
+                      handleSetSelectedTag(tag);
+                    }}
+                    key={tag.name}
+                    isChecked={tagSelected === tag.name ? true : false}
+                  />
+                ))}
+            </StyledCheckboxContent>
+          )}
         </Card>
       </StyledSideMenuContent>
     </StyledSideMenu>
@@ -190,7 +200,7 @@ const StyledRadiosContent = styled.div`
 const StyledInputWrapper = styled.div`
   padding-left: 24px;
   padding-right: 24px;
-  input{
+  input {
     width: 100%;
   }
 `;

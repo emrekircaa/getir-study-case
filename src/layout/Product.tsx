@@ -13,37 +13,44 @@ import { setBasketList } from "../store/cart/cartSlice";
 import { StyledButton } from "../components/Button/style";
 import { colors } from "../theme";
 import { getAllCompanies } from "../store/brands/brandSlice";
+import { setFilter } from "../store/filter/filterSlice";
 
 const ITEM_TYPES: any[] = [
   { id: "all", label: "All" },
   { id: "mug", label: "Mug" },
   { id: "shirt", label: "Shirt" },
 ];
+
 export const Product: React.FC = () => {
   const { filteredProduct: product, isLoading } = useSelector(
     (store: any) => store.product
   );
+  const filters = useSelector((store: any) => store.filter);
   const [selectedType, setSelectedType] = useState<string>("all");
   const dispatch = useAppDispatch();
-  useEffect(() => {
-    dispatch(getFilteredProduct({ itemType: selectedType }));
-    dispatch(getAllProduct());
 
+  useEffect(() => {
+    dispatch(getAllProduct());
     dispatch(getAllCompanies());
-  }, [dispatch, selectedType]);
+  }, []);
+  console.log(filters);
+
+  useEffect(() => {
+    if (filters) {
+      dispatch(getFilteredProduct(filters));
+    }
+  }, [dispatch, filters]);
+
   const handleAddToCart = (product: any) => {
     dispatch(setBasketList(product));
   };
   const handleButtonClick = (buttonId: string) => {
     setSelectedType(buttonId);
-  };
-  const changePage = () => {
-    dispatch(getFilteredProduct({ page: product.currentPage }));
+    dispatch(setFilter({ ...filters, itemType: buttonId, page: 1 }));
   };
   const handlePageClick = (event: any) => {
-    console.log("eventevent", event, event.selected);
-    const pageNumber: string = event.selected + 1;
-    dispatch(getFilteredProduct({ page: pageNumber }));
+    const pageNumber: number = event.selected + 1;
+    dispatch(setFilter({ ...filters, page: pageNumber }));
   };
   return (
     <StyledProduct>
@@ -85,7 +92,7 @@ export const Product: React.FC = () => {
       </ProductList>
       <Pagination
         pageCount={Math.ceil(product.totalItems / 16)}
-        selectedPageIndex={0}
+        selectedPageIndex={filters.page - 1}
         handlePageClick={e => handlePageClick(e)}
       />
     </StyledProduct>
