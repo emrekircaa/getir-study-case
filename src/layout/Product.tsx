@@ -43,7 +43,7 @@ export const Product: React.FC = () => {
     if (selectedType) {
       dispatch(getAllProduct({ itemType: selectedType }));
     }
-  }, [filters]);
+  }, [selectedType]);
 
   const handleAddToCart = (product: any) => {
     dispatch(setBasketList(product));
