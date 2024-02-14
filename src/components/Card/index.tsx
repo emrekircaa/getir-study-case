@@ -21,9 +21,7 @@ export const Card: React.FC<CardProps> = memo(({ children, size, title }) => {
   );
 });
 
-const StyledCardContainer = styled.div`
-  border: 1px solid black;
-`;
+const StyledCardContainer = styled.div``;
 const StyledCard = styled.div<{ size: CardSizeType }>`
   box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
   border-radius: 2px;
